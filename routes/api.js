@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
-const db = "mongodb://sinhue:sinhuedb@projects-shard-00-00-1fztt.mongodb.net:27017/eventsdb";
+const db = "mongodb://localhost:27017/test";
 // mongoose.Promise = global.Promise;
 
 mongoose.connect(db, function(err){
