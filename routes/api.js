@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
-const db = "mongodb://localhost:27017/test";
+const db = "mongodb://localhost";
 // mongoose.Promise = global.Promise;
 
 mongoose.connect(db, function(err){
@@ -327,7 +327,8 @@ router.post('/register', (req, res) => {
   user.save((err, registeredUser) => {
     if (err) {
       console.log(err)      
-    } else {
+    }
+     else {
       let payload = {subject: registeredUser._id}
       let token = jwt.sign(payload, 'secretKey')
       res.status(200).send({token})
